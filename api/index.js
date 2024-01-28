@@ -1,7 +1,7 @@
 import express from "express"; // write the program using ES6 import
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-//import userRoutes from "./routes/user.route.js";
+import userRoutes from "./routes/user.route.js";
 //import authRoutes from "./routes/auth.route.js"
 dotenv.config();
 const app = express();
@@ -31,7 +31,7 @@ const connectDB = async () => {
   });
 
   /*routes*/
-//app.use("/api/user", userRoutes);
+app.use("/api/user", userRoutes);
 //app.use('/api/auth', authRoutes);
 
   /*port*/
