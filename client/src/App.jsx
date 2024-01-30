@@ -6,6 +6,8 @@ import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import Search from "./pages/Search";
 import Header from "./components/Header";
+//import { Footer } from "flowbite-react";
+import Footer from "./components/Footer"
 
 //import './App.css'
 
@@ -23,6 +25,7 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
