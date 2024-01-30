@@ -1,3 +1,4 @@
+
 import express from "express"; // write the program using ES6 import
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -18,17 +19,23 @@ const connectDB = async () => {
   };
   connectDB();
   
-  const PORT = process.env.PORT || 6000;
+  const PORT = process.env.PORT || 3000;
+ 
   
   /*middleware*/
   app.use(express.static("public"));
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   
-  /*routes basic*/
+
+  
+//app.use('/', (req, res) => res.status(200).send('HEALTHY'));
+  
+  /* Basic route*/
   app.get("/", (req, res) => {
     res.send("hello world ");
   });
+  
 
   /*routes*/
 app.use("/api/user", userRoutes);
@@ -38,3 +45,4 @@ app.use("/api/user", userRoutes);
 app.listen(PORT, function () {
     console.log(`app listening on port ${PORT}!`);
   });
+  
