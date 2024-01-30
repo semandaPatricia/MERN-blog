@@ -28,14 +28,11 @@ const connectDB = async () => {
   app.use(express.json());
   
 
-  
-//app.use('/', (req, res) => res.status(200).send('HEALTHY'));
-  
-  /* Basic route*/
+/* Basic route*/
   app.get("/", (req, res) => {
     res.send("hello world ");
   });
-  
+  //app.use('/', (req, res) => res.status(200).send('HEALTHYYYY'));
 
   /* Main routes*/
 app.use("/api/user", userRoutes);
@@ -46,3 +43,12 @@ app.listen(PORT, function () {
     console.log(`app listening on port ${PORT}!`);
   });
   
+  app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    res.status(statusCode).json({
+      success: false,
+      statusCode,
+      message,
+    });
+  });
