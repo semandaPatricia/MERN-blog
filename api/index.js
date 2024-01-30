@@ -3,7 +3,7 @@ import express from "express"; // write the program using ES6 import
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.route.js";
-//import authRoutes from "./routes/auth.route.js"
+import authRoutes from "./routes/auth.route.js"
 dotenv.config();
 const app = express();
 
@@ -37,9 +37,9 @@ const connectDB = async () => {
   });
   
 
-  /*routes*/
+  /* Main routes*/
 app.use("/api/user", userRoutes);
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
   /*port*/
 app.listen(PORT, function () {
